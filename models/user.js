@@ -1,23 +1,14 @@
-const { Schema, model } = require('mongoose');
-const assignmentSchema = require('./Assignment');
+const { Schema, model } = require('mongoose');//??
+const assignmentSchema = require('./Assignment');//??
 
 // Schema to create Student model
-const studentSchema = new Schema(
+const userSchema = new Schema(
   {
-    first: {
+    username: {
       type: String,
+      unique: true,
       required: true,
-      max_length: 50,
-    },
-    last: {
-      type: String,
-      required: true,
-      max_length: 50,
-    },
-    github: {
-      type: String,
-      required: true,
-      max_length: 50,
+      trim: true
     },
     assignments: [assignmentSchema],
   },
@@ -28,6 +19,6 @@ const studentSchema = new Schema(
   }
 );
 
-const Student = model('student', studentSchema);
+const User = model('User', userSchema);
 
-module.exports = Student;
+module.exports = User;
