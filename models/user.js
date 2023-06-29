@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
+// const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 // Schema to create Student model
 const userSchema = new Schema(
   {
@@ -26,6 +26,12 @@ const userSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     }]
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
   });
   
   
