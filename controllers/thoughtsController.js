@@ -68,4 +68,22 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  async createReaction(req, res) {
+    try {
+      const thoughts = await thoughts.create(req.body);
+      res.json(thoughts);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
+  async removeReaction(req, res) {
+    try {
+      const thought = await thoughts.findByIdAndRemove(req.params.reactionId);
+      res.json(thoughts);
+    } catch (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+  },
 };
