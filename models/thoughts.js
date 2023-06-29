@@ -20,8 +20,14 @@ const reactionSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
     get: (createdAt) => new Date(createdAt).toLocaleString()
+  },
+  
+   toJSON: {
+      getters: true,
+    },
+    id: false,
   }
-});
+);
 
 // Thought Schema
 const thoughtSchema = new mongoose.Schema({
@@ -41,6 +47,13 @@ const thoughtSchema = new mongoose.Schema({
     required: true
   },
   reactions: [reactionSchema]
+},
+{
+  toJSON: {
+    virtuals: true,
+    getters: true,
+  },
+  id: false,
 });
 
 // Virtual for reactionCount
