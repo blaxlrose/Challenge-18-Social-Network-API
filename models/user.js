@@ -19,11 +19,11 @@ const userSchema = new Schema(
       match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ // Regular expression for email validation
     },
     thoughts: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Thought'
     }],
     friends: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'User'
     }]
   },
