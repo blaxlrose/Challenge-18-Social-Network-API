@@ -34,7 +34,7 @@
 //     } catch (err) {
 //       res.status(500).json(err);
 //     }
-//   },
+//   }, 
 // };
 const { user, thoughts } = require("../models");
 
